@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:scrollbars="none">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardregister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/jarak20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/jarak20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_title"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:text="@string/tebusan_resep_text"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/jarak_40sp" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edit_text_tanggal_pendaftaran"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/jarak50dp"
+                    android:layout_marginBottom="@dimen/jarak10dp"
+                    android:focusable="false"
+                    android:hint="@string/tanggal_pendaftaran_hint" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edit_text_keterangan"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/jarak100dp"
+                    android:layout_marginBottom="@dimen/jarak10dp"
+                    android:gravity="top|start"
+                    android:hint="@string/keterangan_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine"
+                    android:maxLines="3"
+                    android:scrollbars="vertical"
+                    tools:targetApi="o" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/jarak1dp"
+                android:layout_marginBottom="@dimen/dots_margin_bottom"
+                android:background="@drawable/background_edit_text">
+
+                <TextView
+                    android:id="@+id/text_spinner_poliklinik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/poliklinik_menu_text"
+                    android:textSize="@dimen/size_17sp"
+                    tools:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/spinner_poliklinik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    tools:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/jarak1dp"
+                android:layout_marginBottom="@dimen/dots_margin_bottom"
+                android:background="@drawable/background_edit_text">
+
+                <TextView
+                    android:id="@+id/text_spinner_dokter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dokter_menu_text"
+                    android:textSize="@dimen/size_17sp"
+                    tools:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/spinner_dokter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    tools:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/jarak1dp"
+                android:layout_marginBottom="@dimen/dots_margin_bottom"
+                android:background="@drawable/background_edit_text">
+
+                <TextView
+                    android:id="@+id/text_spinner_pasien"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pasien_menu_text"
+                    android:textSize="@dimen/size_17sp"
+                    tools:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/spinner_pasien"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    tools:visibility="gone" />
+            </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/button_sign_up"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/jarak10dp"
+                android:background="@drawable/ground_button_place"
+                android:text="@string/daftar_button_text"
+                android:textColor="@android:color/white"
+                android:textIsSelectable="true" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

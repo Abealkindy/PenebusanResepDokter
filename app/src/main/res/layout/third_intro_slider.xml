@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange"
+    android:gravity="center"
+    android:padding="@dimen/slide_title">
+
+
+    <ImageView
+        android:id="@+id/first_intro_slide_image"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/jarak10dp"
+        android:src="@drawable/everywhere"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/access_wherever_you_want_text"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/jarak30sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/jarak20dp"
+            android:text="@string/third_intro_detail_text"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/jarak20sp" />
+    </LinearLayout>
+</RelativeLayout>

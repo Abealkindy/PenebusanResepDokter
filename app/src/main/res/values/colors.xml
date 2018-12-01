@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#34C2E9</color>
+    <color name="colorPrimaryOpacity">#fe10b6e4</color>
+    <color name="colorPrimaryDark">#30b7dc</color>
+    <color name="colorAccent">#34C2E9</color>
+    <color name="green_lumut">#00B490</color>
+    <color name="green_lumut_darker">#00a483</color>
+    <color name="green_grass">#00AE74</color>
+    <color name="green_grass_darker">#00a36c</color>
+    <color name="orange">#FFA73A</color>
+    <color name="orange_darker">#e69531</color>
+    <color name="black_with_opacity">#a0000000</color>
+    <array name="array_dot_activ">
+        <item>@android:color/white</item>
+        <item>@android:color/white</item>
+        <item>@android:color/white</item>
+    </array>
+
+    <array name="array_dot_noactiv">
+        <item>@color/colorPrimaryDark</item>
+        <item>@color/green_lumut_darker</item>
+        <item>@color/orange_darker</item>
+    </array>
+</resources>

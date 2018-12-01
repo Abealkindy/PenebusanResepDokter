@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
+    android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardregister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/jarak20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/jarak20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/slide_title"
+                    android:fontFamily="@font/montserrat"
+                    android:gravity="center"
+                    android:text="@string/tebusan_resep_text"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/jarak_40sp" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edit_text_username_pasien"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/jarak50dp"
+                        android:layout_marginBottom="@dimen/jarak10dp"
+                        android:hint="@string/username_text"
+                        android:inputType="textPersonName" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edit_text_nama_pasien"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/jarak50dp"
+                        android:layout_marginBottom="@dimen/jarak10dp"
+                        android:hint="@string/nama_lengkap_hint"
+                        android:inputType="textPersonName" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edit_text_umur_pasien"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/jarak50dp"
+                        android:layout_marginBottom="@dimen/jarak10dp"
+                        android:focusable="false"
+                        android:hint="@string/tanggal_lahir_hint" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edit_text_alamat_pasien"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/jarak50dp"
+                        android:layout_marginBottom="@dimen/jarak10dp"
+                        android:hint="@string/alamat_hint"
+                        android:inputType="text" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edit_text_phone_pasien"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/jarak50dp"
+                        android:layout_marginBottom="@dimen/jarak10dp"
+                        android:hint="@string/nomor_telepon_hint"
+                        android:inputType="phone" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edit_text_email_pasien"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/jarak50dp"
+                        android:layout_marginBottom="@dimen/jarak10dp"
+                        android:hint="@string/email_hint"
+                        android:inputType="textEmailAddress" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edit_text_password_pasien"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/jarak50dp"
+                        android:layout_marginBottom="@dimen/jarak10dp"
+                        android:hint="@string/password_hint"
+                        android:inputType="textPassword" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_button_pria"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/pria_radio_button_text" />
+
+                    <RadioButton
+                        android:id="@+id/radio_button_wanita"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/wanita_radio_button_text" />
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/button_update_pasien"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/jarak10dp"
+                    android:background="@drawable/ground_button_place"
+                    android:text="@string/update_button_text"
+                    android:textColor="@android:color/white"
+                    android:textIsSelectable="true" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+</ScrollView>
