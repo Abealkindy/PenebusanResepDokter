@@ -105,7 +105,7 @@ public class DokterAddResepActivity extends AppCompatActivity implements DatePic
                 keteranganResep = editTextKeteranganResep.getText().toString();
                 tanggalResep = editTextTanggalResep.getText().toString();
                 if (keteranganResep.isEmpty()) {
-                    editTextKeteranganResep.setError("Isi keterangan terleboh dahulu!");
+                    editTextKeteranganResep.setError("Isi keterangan terlebih dahulu!");
                     editTextKeteranganResep.requestFocus();
                 } else if (tanggalResep.isEmpty()) {
                     editTextTanggalResep.setError("Pilih umur terlebih dahulu!");
