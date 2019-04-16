@@ -79,7 +79,6 @@ public class FarmasiAddDetailActivity extends AppCompatActivity {
                         obatID = response.body().getHasil().get(position).getId_obat();
                         hargaObat = response.body().getHasil().get(position).getHarga_obat();
                         totalHarga = Double.parseDouble(editTextQuantityObat.getText().toString()) * hargaObat;
-//                        showTotalHarga(totalHarga);
                         textSpinnerObat.setText(String.valueOf(response.body().getHasil().get(position).getNama_obat()));
                     }
 
@@ -123,8 +122,9 @@ public class FarmasiAddDetailActivity extends AppCompatActivity {
         showTotalHarga(totalHarga);
     }
 
+    @SuppressLint("SetTextI18n")
     private void showTotalHarga(double quantityObat) {
-        textTotal.setText(String.valueOf(quantityObat));
+        textTotal.setText("Total Harga : Rp." + String.valueOf(quantityObat));
     }
 
     @OnClick({R.id.text_spinner_obat, R.id.button_increment, R.id.button_decrement, R.id.button_add_detail})

@@ -42,6 +42,8 @@ public class MainPasienActivity extends AppCompatActivity {
     FloatingActionButton floatingMenuLogout;
     @BindView(R.id.floating_menu_item_3)
     FloatingActionButton floatingMenuItem3;
+    @BindView(R.id.floating_menu_history_pasien)
+    FloatingActionButton floatingMenuHistoryPasien;
     @BindView(R.id.material_design_android_floating_action_menu)
     FloatingActionMenu materialDesignAndroidFloatingActionMenu;
     @BindView(R.id.swipe_refresh_antrian)
@@ -138,7 +140,7 @@ public class MainPasienActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick({R.id.floating_menu_profile_edit, R.id.floating_menu_logout, R.id.floating_menu_item_3, R.id.material_design_android_floating_action_menu})
+    @OnClick({R.id.floating_menu_profile_edit, R.id.floating_menu_logout, R.id.floating_menu_item_3, R.id.material_design_android_floating_action_menu, R.id.floating_menu_history_pasien})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.floating_menu_profile_edit:
@@ -155,6 +157,10 @@ public class MainPasienActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.material_design_android_floating_action_menu:
+                break;
+            case R.id.floating_menu_history_pasien:
+                startActivity(new Intent(MainPasienActivity.this, PasienAntrianHistoryActivity.class));
+                finish();
                 break;
         }
     }

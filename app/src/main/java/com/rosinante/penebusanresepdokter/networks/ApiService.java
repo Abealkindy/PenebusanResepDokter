@@ -2,7 +2,10 @@ package com.rosinante.penebusanresepdokter.networks;
 
 import com.rosinante.penebusanresepdokter.models.AntrianDokterModel;
 import com.rosinante.penebusanresepdokter.models.AntrianModel;
+import com.rosinante.penebusanresepdokter.models.AntrianPasienModel;
+import com.rosinante.penebusanresepdokter.models.DetailFarmasiModel;
 import com.rosinante.penebusanresepdokter.models.DetailModel;
+import com.rosinante.penebusanresepdokter.models.DetailStrukModel;
 import com.rosinante.penebusanresepdokter.models.DokterByIDModel;
 import com.rosinante.penebusanresepdokter.models.DokterDetailModel;
 import com.rosinante.penebusanresepdokter.models.DokterModel;
@@ -14,6 +17,7 @@ import com.rosinante.penebusanresepdokter.models.PembayaranModel;
 import com.rosinante.penebusanresepdokter.models.PoliklinikModel;
 import com.rosinante.penebusanresepdokter.models.RegisterResponse;
 import com.rosinante.penebusanresepdokter.models.ResepAllModel;
+import com.rosinante.penebusanresepdokter.models.ResepDokterModel;
 import com.rosinante.penebusanresepdokter.models.ResepModel;
 
 import retrofit2.Call;
@@ -151,6 +155,12 @@ public interface ApiService {
     );
 
     @FormUrlEncoded
+    @POST("getAntrianByPasienID")
+    Call<AntrianPasienModel> getAntrianByPasienID(
+            @Field("pasien_id") int pasien_id
+    );
+
+    @FormUrlEncoded
     @POST("getDokterById")
     Call<DokterByIDModel> getDokterById(
             @Field("id_user") int id_user
@@ -159,6 +169,12 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("getAntrianByDokterID")
     Call<AntrianDokterModel> getAntrianByDokterID(
+            @Field("dokter_id") int dokter_id
+    );
+
+    @FormUrlEncoded
+    @POST("getResepByDokterID")
+    Call<ResepDokterModel> getResepByDokterID(
             @Field("dokter_id") int dokter_id
     );
 
@@ -191,6 +207,12 @@ public interface ApiService {
 
     @GET("getDetail")
     Call<DetailModel> getDetail();
+
+    @GET("getDetailForPharmacy")
+    Call<DetailFarmasiModel> getDetailForPharmacy();
+
+    @GET("getStruk")
+    Call<DetailStrukModel> getDataStruk();
 
     @GET("getPembayaran")
     Call<PembayaranModel> getPembayaran();

@@ -5,40 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.v4.content.FileProvider;
 
-import com.rosinante.penebusanresepdokter.R;
-
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Arrays;
 import java.util.List;
 
-import static com.rosinante.penebusanresepdokter.utils.LogUtils.LOGD;
-import static com.rosinante.penebusanresepdokter.utils.LogUtils.LOGE;
-
-
-/**
- * Created by k2 on 30/6/17.
- */
 
 public class FileUtils {
-
-    private static final String extensions[] = new String[]{
-            "avi", "3gp", "mp4", "mp3", "jpeg", "jpg", "gif",
-            "png", "pdf", "docx", "doc", "xls", "xlsx", "csv",
-            "ppt", "pptx", "txt", "zip", "rar"
-    };
-
-
     public static void openFile(Context context, File url) throws ActivityNotFoundException {
         // Create URI
         //Uri uri = Uri.fromFile(url);
@@ -51,9 +25,9 @@ public class FileUtils {
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
 
-        //
-        //Security
-        //
+        /*
+          Security
+         */
         List<ResolveInfo> resInfoList = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
         for (ResolveInfo resolveInfo : resInfoList) {
             String packageName = resolveInfo.activityInfo.packageName;
@@ -121,155 +95,6 @@ public class FileUtils {
         context.startActivity(intent);
     }
 
-    /**
-     * Get Path of App which contains Files
-     *
-     * @return path of root dir
-     */
-    public static String getAppPath(Context context) {
-        File dir = new File(android.os.Environment.getExternalStorageDirectory()
-                + File.separator
-                + context.getResources().getString(R.string.app_name)
-                + File.separator);
-        if (!dir.exists()) {
-            dir.mkdir();
-        }
-        return dir.getPath() + File.separator;
-    }
-
-    /***
-     * Copy File
-     *
-     * @param src
-     * @param dst
-     * @throws IOException
-     */
-    public static void copy(File src, File dst) {
-        InputStream in;
-        OutputStream out;
-        try {
-            in = new FileInputStream(src);
-            out = new FileOutputStream(dst);
-
-            String tempExt = FileUtils.getExtension(dst.getPath());
-
-            if (tempExt.equals("jpeg") || tempExt.equals("jpg") || tempExt.equals("gif")
-                    || tempExt.equals("png")) {
-                if (out != null) {
-
-                    Bitmap bit = BitmapFactory.decodeFile(src.getPath());
-                    LOGD("Bitmap : " + bit);
-
-                    if (bit.getWidth() > 700) {
-                        if (bit.getHeight() > 700)
-                            bit = Bitmap.createScaledBitmap(bit, 700, 700, true);
-                        else
-                            bit = Bitmap.createScaledBitmap(bit, 700, bit.getHeight(), true);
-                    } else {
-                        if (bit.getHeight() > 700)
-                            bit = Bitmap.createScaledBitmap(bit, bit.getWidth(), 700, true);
-                        else
-                            bit = Bitmap.createScaledBitmap(bit, bit.getWidth(), bit.getHeight(), true);
-                    }
-
-                    bit.compress(Bitmap.CompressFormat.JPEG, 90, out);
-                }
-                LOGD("File Compressed...");
-            } else {
-
-                // Transfer bytes from in to out
-                byte[] buf = new byte[1024 * 4];
-                int len;
-                while ((len = in.read(buf)) > 0) {
-                    out.write(buf, 0, len);
-                }
-            }
-
-            in.close();
-            out.close();
-
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            LOGE("Compressing ERror :  " + e.getLocalizedMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            LOGE("Compressing ERror IOE : " + e.getLocalizedMessage());
-        } catch (Exception e) {
-            // TODO: handle exception
-            LOGE("Compressing ERror Other: " + e.getLocalizedMessage());
-        }
-    }
-
-    /***
-     * Move File
-     *
-     * @param src
-     * @param dst
-     * @throws IOException
-     */
-    public static void move(File src, File dst) {
-        InputStream in;
-        OutputStream out;
-        try {
-            in = new FileInputStream(src);
-            out = new FileOutputStream(dst);
-
-            String tempExt = FileUtils.getExtension(dst.getPath());
-
-            if (tempExt.equals("jpeg") || tempExt.equals("jpg") || tempExt.equals("gif")
-                    || tempExt.equals("png")) {
-                if (out != null) {
-
-                    Bitmap bit = BitmapFactory.decodeFile(src.getPath());
-                    LOGD("Bitmap : " + bit);
-
-                    if (bit.getWidth() > 700 || bit.getHeight() > 700) {
-                        bit = Bitmap.createScaledBitmap(bit, 700, 700, true);
-                    }
-                    bit.compress(Bitmap.CompressFormat.JPEG, 90, out);
-                }
-                LOGD("File Compressed...");
-            } else {
-
-                // Transfer bytes from in to out
-                byte[] buf = new byte[1024 * 4];
-                int len;
-                while ((len = in.read(buf)) > 0) {
-                    out.write(buf, 0, len);
-                }
-            }
-
-            in.close();
-            out.close();
-
-            /**
-             * Delete File from Source folder...
-             */
-            if (src.delete())
-                LOGD("File Successfully Copied...");
-
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            LOGE("Compressing ERror :  " + e.getLocalizedMessage());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            LOGE("Compressing ERror IOE : " + e.getLocalizedMessage());
-        } catch (Exception e) {
-            // TODO: handle exception
-            LOGE("Compressing ERror Other: " + e.getLocalizedMessage());
-        }
-    }
-
-    /**
-     * Is Valid Extension
-     *
-     * @param ext
-     * @return
-     */
-    public static boolean isValidExtension(String ext) {
-        return Arrays.asList(extensions).contains(ext);
-
-    }
 
     /**
      * Return Extension of given path without dot(.)

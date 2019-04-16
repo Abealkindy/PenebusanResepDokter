@@ -11,13 +11,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.rosinante.penebusanresepdokter.R;
-import com.rosinante.penebusanresepdokter.activities.pasienpages.MainPasienActivity;
-import com.rosinante.penebusanresepdokter.activities.pasienpages.PasienAddAntrianActivity;
 import com.rosinante.penebusanresepdokter.fragments.DatePickerFragment;
 import com.rosinante.penebusanresepdokter.models.RegisterResponse;
 import com.rosinante.penebusanresepdokter.networks.ApiService;
 import com.rosinante.penebusanresepdokter.networks.RetrofitConfig;
-import com.rosinante.penebusanresepdokter.utils.UserSession;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

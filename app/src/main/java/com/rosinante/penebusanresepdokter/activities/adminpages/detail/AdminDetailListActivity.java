@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.rosinante.penebusanresepdokter.R;
 import com.rosinante.penebusanresepdokter.activities.adminpages.MainAdminActivity;
 import com.rosinante.penebusanresepdokter.adapters.recyclerviewadapters.RecyclerDetailAdapter;
+import com.rosinante.penebusanresepdokter.adapters.recyclerviewadapters.RecyclerDetailFarmasiAdapter;
+import com.rosinante.penebusanresepdokter.models.DetailFarmasiModel;
 import com.rosinante.penebusanresepdokter.models.DetailModel;
 import com.rosinante.penebusanresepdokter.networks.ApiService;
 import com.rosinante.penebusanresepdokter.networks.RetrofitConfig;
@@ -46,16 +48,16 @@ public class AdminDetailListActivity extends AppCompatActivity {
 
     private void getDetailData() {
         ApiService apiService = RetrofitConfig.getInitRetrofit();
-        Call<DetailModel> detailModelCall = apiService.getDetail();
-        detailModelCall.enqueue(new Callback<DetailModel>() {
+        Call<DetailFarmasiModel> detailModelCall = apiService.getDetailForPharmacy();
+        detailModelCall.enqueue(new Callback<DetailFarmasiModel>() {
             @Override
-            public void onResponse(@NonNull Call<DetailModel> call, @NonNull Response<DetailModel> response) {
+            public void onResponse(@NonNull Call<DetailFarmasiModel> call, @NonNull Response<DetailFarmasiModel> response) {
                 recyclerDetail.setLayoutManager(new LinearLayoutManager(AdminDetailListActivity.this));
-                recyclerDetail.setAdapter(new RecyclerDetailAdapter(AdminDetailListActivity.this, Objects.requireNonNull(response.body()).getHasil()));
+                recyclerDetail.setAdapter(new RecyclerDetailFarmasiAdapter(AdminDetailListActivity.this, Objects.requireNonNull(response.body()).getHasil()));
             }
 
             @Override
-            public void onFailure(@NonNull Call<DetailModel> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<DetailFarmasiModel> call, @NonNull Throwable t) {
                 Toast.makeText(AdminDetailListActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

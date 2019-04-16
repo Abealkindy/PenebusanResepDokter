@@ -26,7 +26,7 @@
                 android:layout_marginBottom="@dimen/slide_title"
                 android:fontFamily="@font/montserrat"
                 android:gravity="center"
-                android:text="@string/tebusan_resep_text"
+                android:text="@string/daftar_antrian_text"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="@dimen/jarak_40sp" />
 
@@ -54,7 +54,7 @@
                     android:layout_height="@dimen/jarak100dp"
                     android:layout_marginBottom="@dimen/jarak10dp"
                     android:gravity="top|start"
-                    android:hint="@string/keterangan_hint"
+                    android:hint="@string/keluhan_hint"
                     android:importantForAutofill="no"
                     android:inputType="textMultiLine"
                     android:maxLines="3"

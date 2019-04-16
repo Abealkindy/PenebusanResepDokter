@@ -15,12 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
+        <activity android:name=".activities.adminpages.printstruk.AdminDetailStrukListActivity" />
         <activity
             android:name=".activities.SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,73 +28,122 @@
         </activity>
         <activity
             android:name=".activities.IntroSliderActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.pasienpages.EditPasienProfileActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.adminpages.MainAdminActivity"
             android:label="@string/title_activity_main_admin"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.adminpages.user.AdminRegisterActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.RegisterActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.adminpages.dokter.AdminEditDokterProfileActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.adminpages.pasien.AdminEditPasienProfileActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.adminpages.antrian.AdminAntrianListActivity"
             android:label="@string/title_activity_admin_antrian_list"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.adminpages.antrian.AdminAddAntrianActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.adminpages.obat.AdminAddObatActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.adminpages.poliklinik.AdminAddPoliklinikActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.pasienpages.PasienAddAntrianActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.dokterpages.DokterAddResepActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.farmasipages.FarmasiAddDetailActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.kasirpages.KasirAddPembayaranActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.PermissionsActivity"
+            android:name=".activities.adminpages.printstruk.AdminPrintStrukActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.adminpages.dokter.AdminDokterListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.adminpages.pasien.AdminPasienListActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.adminpages.dokter.AdminDokterListActivity" />
-        <activity android:name=".activities.adminpages.pasien.AdminPasienListActivity" />
-        <activity android:name=".activities.adminpages.poliklinik.AdminPoliklinikListActivity" />
-        <activity android:name=".activities.adminpages.user.AdminUserListActivity" />
-        <activity android:name=".activities.adminpages.obat.AdminObatListActivity" />
-        <activity android:name=".activities.adminpages.resep.AdminResepListActivity" />
-        <activity android:name=".activities.pasienpages.MainPasienActivity" />
-        <activity android:name=".activities.dokterpages.MainDokterActivity" />
-        <activity android:name=".activities.farmasipages.MainFarmasiActivity" />
-        <activity android:name=".activities.kasirpages.MainKasirActivity" />
-        <activity android:name=".activities.adminpages.detail.AdminDetailListActivity" />
-        <activity android:name=".activities.adminpages.pembayaran.AdminPembayaranListActivity" />
-
+        <activity
+            android:name=".activities.adminpages.poliklinik.AdminPoliklinikListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.adminpages.user.AdminUserListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.adminpages.obat.AdminObatListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.adminpages.resep.AdminResepListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.pasienpages.MainPasienActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.dokterpages.MainDokterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.farmasipages.MainFarmasiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.kasirpages.MainKasirActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.adminpages.detail.AdminDetailListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.adminpages.pembayaran.AdminPembayaranListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.kasirpages.KasirPembayaranHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.farmasipages.FarmasiDetailHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.dokterpages.DokterResepHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.pasienpages.PasienAntrianHistoryActivity"
+            android:screenOrientation="portrait" />
         <!-- File Provider -->
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -107,7 +154,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-
     </application>
 
 </manifest>

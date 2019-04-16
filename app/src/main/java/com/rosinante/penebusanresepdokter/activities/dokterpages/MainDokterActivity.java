@@ -37,6 +37,8 @@ public class MainDokterActivity extends AppCompatActivity {
     FloatingActionButton floatingMenuLogoutDokter;
     @BindView(R.id.material_design_android_floating_action_menu)
     FloatingActionMenu materialDesignAndroidFloatingActionMenu;
+    @BindView(R.id.floating_menu_history_dokter)
+    FloatingActionButton floatingMenuHistoryDokter;
     @BindView(R.id.swipe_refresh_antrian_dokter)
     SwipeRefreshLayout swipeRefreshAntrianDokter;
 
@@ -71,7 +73,7 @@ public class MainDokterActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick({R.id.floating_menu_logout_dokter, R.id.material_design_android_floating_action_menu})
+    @OnClick({R.id.floating_menu_logout_dokter, R.id.material_design_android_floating_action_menu, R.id.floating_menu_history_dokter})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.floating_menu_logout_dokter:
@@ -80,8 +82,13 @@ public class MainDokterActivity extends AppCompatActivity {
                 startActivity(new Intent(MainDokterActivity.this, LoginActivity.class));
                 finish();
                 break;
+            case R.id.floating_menu_history_dokter:
+                startActivity(new Intent(MainDokterActivity.this, DokterResepHistoryActivity.class));
+                finish();
+                break;
             case R.id.material_design_android_floating_action_menu:
                 break;
         }
     }
+
 }

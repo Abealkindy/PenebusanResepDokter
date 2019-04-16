@@ -41,7 +41,9 @@ public class RecyclerPembayaranAdapter extends RecyclerView.Adapter<RecyclerPemb
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int postion) {
         viewHolder.textListPembayaran.setText("ID Pembayaran : " + pembayaranModelData.get(postion).getPembayaran_id() + "\n");
         viewHolder.textListPembayaran.append("Nama Pasien : " + pembayaranModelData.get(postion).getPasien_name() + "\n");
-        viewHolder.textListPembayaran.append("Tanggal Pembayaran : " + pembayaranModelData.get(postion).getPembayaran_date());
+        viewHolder.textListPembayaran.append("Tanggal Pembayaran : " + pembayaranModelData.get(postion).getPembayaran_date() + "\n");
+        viewHolder.textListPembayaran.append("Uang Pembayaran : " + pembayaranModelData.get(postion).getUang_pembayaran() + "\n");
+        viewHolder.textListPembayaran.append("Uang Kembalian : " + pembayaranModelData.get(postion).getKembalian_pembayaran());
     }
 
     @Override

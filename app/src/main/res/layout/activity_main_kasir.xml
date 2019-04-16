@@ -58,6 +58,15 @@
         fab:menu_showShadow="true">
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/floating_menu_history_kasir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/ic_history_black_24dp"
+            fab:fab_size="mini"
+            fab:menu_colorNormal="@color/colorPrimary" />
+
+        <com.github.clans.fab.FloatingActionButton
             android:id="@+id/floating_menu_logout_kasir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

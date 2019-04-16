@@ -14,7 +14,7 @@ public class RetrofitConfig {
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .build();
         return new Retrofit.Builder()
-                .baseUrl("http://192.168.137.237/TebusanResepDokter/Resep/")
+                .baseUrl("http://192.168.43.103/TebusanResepDokter/Resep/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

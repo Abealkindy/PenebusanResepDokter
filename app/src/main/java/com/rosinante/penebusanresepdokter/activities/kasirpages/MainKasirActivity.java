@@ -35,6 +35,8 @@ public class MainKasirActivity extends AppCompatActivity {
     RecyclerView recyclerResepKasir;
     @BindView(R.id.floating_menu_logout_kasir)
     FloatingActionButton floatingMenuLogoutKasir;
+    @BindView(R.id.floating_menu_history_kasir)
+    FloatingActionButton floatingMenuHistoryKasir;
     @BindView(R.id.material_design_android_floating_action_menu)
     FloatingActionMenu materialDesignAndroidFloatingActionMenu;
     @BindView(R.id.swipe_refresh_resep_kasir)
@@ -70,13 +72,17 @@ public class MainKasirActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick({R.id.floating_menu_logout_kasir, R.id.material_design_android_floating_action_menu})
+    @OnClick({R.id.floating_menu_logout_kasir, R.id.floating_menu_history_kasir, R.id.material_design_android_floating_action_menu})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.floating_menu_logout_kasir:
                 UserSession userSession = new UserSession(MainKasirActivity.this);
                 userSession.logout();
                 startActivity(new Intent(MainKasirActivity.this, LoginActivity.class));
+                finish();
+                break;
+            case R.id.floating_menu_history_kasir:
+                startActivity(new Intent(MainKasirActivity.this, KasirPembayaranHistoryActivity.class));
                 finish();
                 break;
             case R.id.material_design_android_floating_action_menu:

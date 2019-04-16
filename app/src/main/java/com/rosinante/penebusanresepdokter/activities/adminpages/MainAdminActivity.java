@@ -6,13 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.rosinante.penebusanresepdokter.R;
 import com.rosinante.penebusanresepdokter.activities.LoginActivity;
-import com.rosinante.penebusanresepdokter.activities.MainActivity;
 import com.rosinante.penebusanresepdokter.activities.adminpages.antrian.AdminAntrianListActivity;
 import com.rosinante.penebusanresepdokter.activities.adminpages.detail.AdminDetailListActivity;
 import com.rosinante.penebusanresepdokter.activities.adminpages.dokter.AdminDokterListActivity;
@@ -20,6 +18,7 @@ import com.rosinante.penebusanresepdokter.activities.adminpages.obat.AdminObatLi
 import com.rosinante.penebusanresepdokter.activities.adminpages.pasien.AdminPasienListActivity;
 import com.rosinante.penebusanresepdokter.activities.adminpages.pembayaran.AdminPembayaranListActivity;
 import com.rosinante.penebusanresepdokter.activities.adminpages.poliklinik.AdminPoliklinikListActivity;
+import com.rosinante.penebusanresepdokter.activities.adminpages.printstruk.AdminDetailStrukListActivity;
 import com.rosinante.penebusanresepdokter.activities.adminpages.resep.AdminResepListActivity;
 import com.rosinante.penebusanresepdokter.activities.adminpages.user.AdminRegisterActivity;
 import com.rosinante.penebusanresepdokter.activities.adminpages.user.AdminUserListActivity;
@@ -110,7 +109,7 @@ public class MainAdminActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.card_print:
-                startActivity(new Intent(MainAdminActivity.this, MainActivity.class));
+                startActivity(new Intent(MainAdminActivity.this, AdminDetailStrukListActivity.class));
                 finish();
                 break;
             case R.id.floating_menu_add_user:

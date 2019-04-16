@@ -35,6 +35,8 @@ public class MainFarmasiActivity extends AppCompatActivity {
     RecyclerView recyclerResepFarmasi;
     @BindView(R.id.floating_menu_logout_farmasi)
     FloatingActionButton floatingMenuLogoutFarmasi;
+    @BindView(R.id.floating_menu_history_farmasi)
+    FloatingActionButton floatingMenuHistoryFarmasi;
     @BindView(R.id.material_design_android_floating_action_menu)
     FloatingActionMenu materialDesignAndroidFloatingActionMenu;
     @BindView(R.id.swipe_refresh_resep_farmasi)
@@ -70,13 +72,17 @@ public class MainFarmasiActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick({R.id.floating_menu_logout_farmasi, R.id.material_design_android_floating_action_menu})
+    @OnClick({R.id.floating_menu_logout_farmasi, R.id.floating_menu_history_farmasi, R.id.material_design_android_floating_action_menu})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.floating_menu_logout_farmasi:
                 UserSession userSession = new UserSession(MainFarmasiActivity.this);
                 userSession.logout();
                 startActivity(new Intent(MainFarmasiActivity.this, LoginActivity.class));
+                finish();
+                break;
+            case R.id.floating_menu_history_farmasi:
+                startActivity(new Intent(MainFarmasiActivity.this, FarmasiDetailHistoryActivity.class));
                 finish();
                 break;
             case R.id.material_design_android_floating_action_menu:

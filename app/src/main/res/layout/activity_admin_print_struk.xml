@@ -30,7 +30,7 @@
                     android:layout_marginBottom="@dimen/slide_title"
                     android:fontFamily="@font/montserrat"
                     android:gravity="center"
-                    android:text="@string/ubah_profil_dokter_text"
+                    android:text="@string/print_struk_text"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="@dimen/jarak_40sp" />
 
@@ -39,12 +39,12 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/edit_text_username"
+                        android:id="@+id/edit_id_struk_print"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/jarak50dp"
                         android:layout_marginBottom="@dimen/jarak10dp"
-                        android:hint="@string/username_text"
-                        android:inputType="textPersonName" />
+                        android:hint="@string/id_struk_hint"
+                        android:inputType="numberDecimal" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -53,13 +53,26 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/edit_text_nama_lengkap"
+                        android:id="@+id/edit_text_tanggal_pembayaran_print"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/jarak50dp"
+                        android:layout_marginBottom="@dimen/jarak10dp"
+                        android:hint="@string/tanggal_pembayaran_text"
+                        android:inputType="date" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edit_text_nama_lengkap_print"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/jarak50dp"
                         android:layout_marginBottom="@dimen/jarak10dp"
                         android:hint="@string/nama_lengkap_hint"
                         android:inputType="textPersonName" />
-
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -67,25 +80,50 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/edit_text_specialist"
+                        android:id="@+id/edit_text_nama_dokter_print"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/jarak50dp"
                         android:layout_marginBottom="@dimen/jarak10dp"
-                        android:hint="@string/spesialis_hint"
+                        android:hint="@string/nama_dokter_text"
+                        android:inputType="textPersonName" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edit_text_nama_poliklinik_print"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/jarak50dp"
+                        android:layout_marginBottom="@dimen/jarak10dp"
+                        android:hint="@string/nama_poliklinik_text"
+                        android:inputType="textPersonName" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edit_text_keterangan_resep_print"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/jarak50dp"
+                        android:layout_marginBottom="@dimen/jarak10dp"
+                        android:hint="@string/resep_text"
                         android:inputType="text" />
                 </android.support.design.widget.TextInputLayout>
 
-
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/edit_text_alamat"
+                        android:id="@+id/edit_text_nama_obat_print"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/jarak50dp"
                         android:layout_marginBottom="@dimen/jarak10dp"
-                        android:hint="@string/alamat_hint"
+                        android:hint="@string/nama_obat_hint"
                         android:inputType="text" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -94,12 +132,12 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/edit_text_phone"
+                        android:id="@+id/edit_text_dosis_obat_print"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/jarak50dp"
                         android:layout_marginBottom="@dimen/jarak10dp"
-                        android:hint="@string/nomor_telepon_hint"
-                        android:inputType="phone" />
+                        android:hint="@string/dosis_obat_hint"
+                        android:inputType="text" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -107,12 +145,12 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/edit_text_email"
+                        android:id="@+id/edit_text_harga_obat_print"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/jarak50dp"
                         android:layout_marginBottom="@dimen/jarak10dp"
-                        android:hint="@string/email_hint"
-                        android:inputType="textEmailAddress" />
+                        android:hint="@string/harga_obat_gr_text"
+                        android:inputType="numberDecimal" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -120,13 +158,12 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/edit_text_password"
+                        android:id="@+id/edit_text_total_harga_print"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/jarak50dp"
                         android:layout_marginBottom="@dimen/jarak10dp"
-                        android:hint="@string/password_hint"
-                        android:inputType="textPassword" />
-
+                        android:hint="@string/total_harga_hint"
+                        android:inputType="numberDecimal" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -134,76 +171,35 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/edit_text_tarif"
+                        android:id="@+id/edit_text_uang_bayar_print"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/jarak50dp"
                         android:layout_marginBottom="@dimen/jarak10dp"
-                        android:hint="@string/tarif_hint"
-                        android:inputType="number" />
-
+                        android:hint="@string/uang_bayar_hint"
+                        android:inputType="numberDecimal" />
                 </android.support.design.widget.TextInputLayout>
 
-                <RelativeLayout
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/jarak1dp"
-                    android:layout_marginBottom="@dimen/dots_margin_bottom"
-                    android:background="@drawable/background_edit_text">
+                    android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/text_spinner_poliklinik"
+                    <EditText
+                        android:id="@+id/edit_text_uang_kembalian_print"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/size_18sp"
-                        tools:text="1"
-                        tools:visibility="visible" />
-
-                    <Spinner
-                        android:id="@+id/spinner_poliklinik"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        tools:visibility="gone" />
-                </RelativeLayout>
-
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/radio_button_pria"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/pria_radio_button_text" />
-
-                    <RadioButton
-                        android:id="@+id/radio_button_wanita"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/wanita_radio_button_text" />
-                </RadioGroup>
+                        android:layout_height="@dimen/jarak50dp"
+                        android:layout_marginBottom="@dimen/jarak10dp"
+                        android:hint="@string/uang_kembalian_hint"
+                        android:inputType="numberDecimal" />
+                </android.support.design.widget.TextInputLayout>
 
 
                 <Button
-                    android:id="@+id/button_update"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/jarak10dp"
                     android:background="@drawable/ground_button_place"
-                    android:text="@string/update_button_text"
-                    android:textColor="@android:color/white"
-                    android:textIsSelectable="true" />
-
-                <Button
-                    android:id="@+id/button_delete"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/jarak10dp"
-                    android:background="@drawable/ground_button_place"
-                    android:text="@string/delete_text"
+                    android:onClick="createPdf"
+                    android:text="@string/print_text"
                     android:textColor="@android:color/white"
                     android:textIsSelectable="true" />
             </LinearLayout>

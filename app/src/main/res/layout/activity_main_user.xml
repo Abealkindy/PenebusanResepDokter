@@ -59,6 +59,14 @@
         fab:menu_showShadow="true">
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/floating_menu_item_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/fab_add"
+            fab:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
             android:id="@+id/floating_menu_profile_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,11 +76,11 @@
             fab:menu_colorNormal="@color/colorPrimary" />
 
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/floating_menu_item_3"
+            android:id="@+id/floating_menu_history_pasien"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:src="@drawable/fab_add"
+            android:src="@drawable/ic_history_black_24dp"
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
