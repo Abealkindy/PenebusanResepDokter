@@ -8,7 +8,7 @@
         android:id="@+id/recycler_user_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/jarak10dp"
-        tools:listitem="@layout/list_item_user" />
+        android:paddingTop="@dimen/size10dp"
+        tools:listitem="@layout/list_item_for_user" />
 
 </RelativeLayout>

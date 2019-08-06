@@ -16,6 +16,8 @@ import com.rosinante.penebusanresepdokter.models.DetailStrukModel;
 import com.rosinante.penebusanresepdokter.networks.ApiService;
 import com.rosinante.penebusanresepdokter.networks.RetrofitConfig;
 
+import java.util.Objects;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
@@ -56,7 +58,7 @@ public class AdminDetailStrukListActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call<DetailStrukModel> call, @NonNull Response<DetailStrukModel> response) {
                 recyclerDetailStruk.setLayoutManager(new LinearLayoutManager(AdminDetailStrukListActivity.this));
-                recyclerDetailStruk.setAdapter(new RecyclerDetailStrukAdapter(AdminDetailStrukListActivity.this, response.body().getHasil()));
+                recyclerDetailStruk.setAdapter(new RecyclerDetailStrukAdapter(AdminDetailStrukListActivity.this, Objects.requireNonNull(response.body()).getHasil()));
             }
 
             @Override

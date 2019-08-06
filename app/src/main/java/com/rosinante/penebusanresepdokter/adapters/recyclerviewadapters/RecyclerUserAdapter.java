@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.rosinante.penebusanresepdokter.R;
@@ -31,15 +32,15 @@ public class RecyclerUserAdapter extends RecyclerView.Adapter<RecyclerUserAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_item_user, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item_for_user, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int postion) {
-        viewHolder.textListAntrian.setText("Username : " + userDataList.get(postion).getUsername() + "\n");
-        viewHolder.textListAntrian.append("User Role : " + userDataList.get(postion).getUser_role());
+        viewHolder.textViewUsernameUser.setText(userDataList.get(postion).getUsername());
+        viewHolder.textViewUserRole.setText(userDataList.get(postion).getUser_role());
 //        viewHolder.cardItemDokter.setOnClickListener(v -> {
 //            Intent intent = new Intent(context.getApplicationContext(), AdminEditDokterProfileActivity.class);
 //            intent.putExtra("poliklinik_id", poliklinikDataList.get(postion).getPoliklinik_id());
@@ -54,10 +55,13 @@ public class RecyclerUserAdapter extends RecyclerView.Adapter<RecyclerUserAdapte
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.text_list_user)
-        TextView textListAntrian;
-        @BindView(R.id.card_item_user)
-        CardView cardItemDokter;
+
+        @BindView(R.id.text_view_username_user)
+        TextView textViewUsernameUser;
+        @BindView(R.id.text_view_user_role)
+        TextView textViewUserRole;
+        @BindView(R.id.relative_list_bottom)
+        RelativeLayout relativeListBottom;
 
         ViewHolder(View view) {
             super(view);

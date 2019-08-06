@@ -11,13 +11,14 @@
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_antrian_admin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_antrian_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/jarak10dp"
-            tools:listitem="@layout/list_item_queue" />
+            android:paddingTop="@dimen/size10dp"
+            tools:listitem="@layout/list_item_for_queue" />
     </android.support.v4.widget.SwipeRefreshLayout>
 </android.support.constraint.ConstraintLayout>

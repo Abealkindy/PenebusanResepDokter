@@ -31,15 +31,21 @@ public class RecyclerPoliklinikAdapter extends RecyclerView.Adapter<RecyclerPoli
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_item_poliklinik, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item_for_poliklinik, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int postion) {
-        viewHolder.textListAntrian.setText("ID Poliklinik : " + poliklinikDataList.get(postion).getPoliklinik_id() + "\n");
-        viewHolder.textListAntrian.append("Nama Poliklinik : " + poliklinikDataList.get(postion).getPoliklinik_name());
+        viewHolder.textViewPoliklinikName.setText(poliklinikDataList.get(postion).getPoliklinik_name());
+        if (String.valueOf(poliklinikDataList.get(postion).getPoliklinik_id()).length() == 1) {
+            viewHolder.textViewPoliklinikId.setText("POL00" + poliklinikDataList.get(postion).getPoliklinik_id());
+        } else if (String.valueOf(poliklinikDataList.get(postion).getPoliklinik_id()).length() == 2) {
+            viewHolder.textViewPoliklinikId.setText("POL0" + poliklinikDataList.get(postion).getPoliklinik_id());
+        } else if (String.valueOf(poliklinikDataList.get(postion).getPoliklinik_id()).length() >= 3) {
+            viewHolder.textViewPoliklinikId.setText("POL" + poliklinikDataList.get(postion).getPoliklinik_id());
+        }
     }
 
     @Override
@@ -48,10 +54,11 @@ public class RecyclerPoliklinikAdapter extends RecyclerView.Adapter<RecyclerPoli
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.text_list_poliklinik)
-        TextView textListAntrian;
-        @BindView(R.id.card_item_poliklinik)
-        CardView cardItemDokter;
+
+        @BindView(R.id.text_view_poliklinik_name)
+        TextView textViewPoliklinikName;
+        @BindView(R.id.text_view_poliklinik_id)
+        TextView textViewPoliklinikId;
 
         ViewHolder(View view) {
             super(view);

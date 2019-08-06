@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_item_list_with_text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/size10dp"
+    android:backgroundTint="@android:color/white"
+    app:cardCornerRadius="@dimen/size8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linear_above"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/size10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/size15dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/antrian_text"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/size20sp" />
+
+            <ImageView
+                android:layout_width="@dimen/size50dp"
+                android:layout_height="@dimen/size50dp"
+                android:src="@drawable/queue"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size15dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/pasien_menu_text"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/size20sp" />
+        </LinearLayout>
+
+        <!--<View-->
+        <!--android:id="@+id/view_line_divider"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/size1dp"-->
+        <!--android:layout_below="@id/linear_above"-->
+        <!--android:background="@android:color/darker_gray" />-->
+
+        <LinearLayout
+            android:id="@+id/linear_center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linear_above"
+            android:layout_alignParentStart="true"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:padding="@dimen/size10dp">
+            <!--android:layout_below="@id/view_line_divider"-->
+
+            <TextView
+                android:id="@+id/text_view_id_antrian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/size5dp"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/size20sp"
+                android:textStyle="bold"
+                tools:text="QUE001" />
+
+            <TextView
+                android:id="@+id/text_view_antrian_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@android:color/white"
+                tools:text="Othonggu Soethardjshoshz\nPoli anak - Dr. Soephornoe" />
+        </LinearLayout>
+
+        <!--<RelativeLayout-->
+        <!--android:id="@+id/relative_list_bottom"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/linear_center"-->
+        <!--android:layout_marginTop="@dimen/size10dp"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:padding="@dimen/size10dp">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:fontFamily="@font/montserrat"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:textSize="@dimen/size20sp"-->
+        <!--tools:text="Lihat Detail" />-->
+
+        <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_marginTop="@dimen/size2dp"-->
+        <!--android:src="@drawable/ic_arrow_right_white_24dp"-->
+        <!--tools:ignore="ContentDescription" />-->
+        <!--</RelativeLayout>-->
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

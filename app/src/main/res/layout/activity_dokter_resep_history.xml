@@ -14,8 +14,8 @@
             android:id="@+id/recycler_history_dokter"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="@dimen/jarak10dp"
-            tools:listitem="@layout/list_item_queue" />
+            android:paddingTop="@dimen/size10dp"
+            tools:listitem="@layout/list_item_for_queue" />
     </android.support.v4.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

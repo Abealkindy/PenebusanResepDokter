@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,8 @@ import com.rosinante.penebusanresepdokter.models.RegisterResponse;
 import com.rosinante.penebusanresepdokter.networks.ApiService;
 import com.rosinante.penebusanresepdokter.networks.RetrofitConfig;
 
+import org.joda.time.DateTime;
+import org.joda.time.Interval;
 import org.joda.time.LocalDate;
 import org.joda.time.Period;
 import org.joda.time.PeriodType;
@@ -136,7 +139,7 @@ public class AdminEditPasienProfileActivity extends AppCompatActivity {
         int month = dob.get(Calendar.MONTH);
         int day = dob.get(Calendar.DAY_OF_MONTH);
 
-        LocalDate birthDate = new LocalDate(year, month, day);
+        LocalDate birthDate = new LocalDate(year, month + 1, day);
         LocalDate nowDate = LocalDate.now();
         Period period = new Period(birthDate, nowDate, PeriodType.yearMonthDay());
         editTextUmur.setText(period.getYears() + " Tahun " + period.getMonths() + " Bulan " + period.getDays() + " Hari");
@@ -222,15 +225,10 @@ public class AdminEditPasienProfileActivity extends AppCompatActivity {
                     calendar.set(year, month, dayOfMonth);
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy MM dd", Locale.getDefault());
                     dateUmur = simpleDateFormat.format(calendar.getTime());
-                    LocalDate birthDate = new LocalDate(year, month, dayOfMonth);
+                    LocalDate birthDate = new LocalDate(year, month + 1, dayOfMonth);
                     LocalDate nowDate = LocalDate.now();
                     Period period = new Period(birthDate, nowDate, PeriodType.yearMonthDay());
                     editTextUmur.setText(period.getYears() + " Tahun " + period.getMonths() + " Bulan " + period.getDays() + " Hari");
-//                    DateTime birthDate = new DateTime(year, month, dayOfMonth, hours, minute, second, millsecond);
-//                    DateTime nowDate = DateTime.now();
-//                    Interval interval = new Interval(birthDate, nowDate);
-//                    Period period = interval.toPeriod(PeriodType.yearMonthDay());
-//                    editTextUmur.setText(period.getYears() + " Tahun " + period.getMonths() + " Bulan " + period.getDays() + " Hari");
                 }, year, month, dateOfMonth);
                 datePickerDialog.show();
                 break;
@@ -238,7 +236,7 @@ public class AdminEditPasienProfileActivity extends AppCompatActivity {
                 pasienGender = "Pria";
                 break;
             case R.id.radio_button_wanita:
-                pasienGender = "Pria";
+                pasienGender = "Wanita";
                 break;
             case R.id.button_update:
                 int IDPasien = getIntent().getIntExtra("pasien_id", 0);

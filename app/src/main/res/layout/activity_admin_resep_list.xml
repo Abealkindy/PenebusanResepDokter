@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/jarak10dp"
+    android:padding="@dimen/size10dp"
     tools:context=".activities.adminpages.resep.AdminResepListActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_resep_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/list_item_dokter" />
+        tools:listitem="@layout/list_item_for_resep_dokter" />
 </android.support.constraint.ConstraintLayout>

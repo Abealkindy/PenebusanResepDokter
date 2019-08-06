@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.rosinante.penebusanresepdokter.R;
@@ -19,6 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class RecyclerPasienQueueAdapter extends RecyclerView.Adapter<RecyclerPasienQueueAdapter.ViewHolder> {
+
     private List<AntrianModel.AntrianModelData> antrianModelList;
     private Context context;
     public int pos;
@@ -31,7 +33,7 @@ public class RecyclerPasienQueueAdapter extends RecyclerView.Adapter<RecyclerPas
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_item_queue, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item_for_queue, viewGroup, false);
         return new ViewHolder(view);
     }
 
@@ -39,11 +41,26 @@ public class RecyclerPasienQueueAdapter extends RecyclerView.Adapter<RecyclerPas
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         pos = viewHolder.getAdapterPosition();
-        viewHolder.textListAntrian.setText("Nomor antrian : " + antrianModelList.get(position).getAntrian_id() + "\n" +
-                "Tanggal antrian : " + antrianModelList.get(position).getTanggal_antrian() + "\n" +
-                "Nama pasien : " + antrianModelList.get(position).getPasien_name() + "\n" +
-                "Nama dokter : " + antrianModelList.get(position).getDokter_name() + "\n" +
-                "Nama poliklinik : " + antrianModelList.get(position).getPoliklinik_name());
+        int antrianIDLength = String.valueOf(antrianModelList.get(position).getAntrian_id()).length();
+        if (antrianIDLength == 1) {
+            viewHolder.textViewIdAntrian.setText("QUE00" + antrianModelList.get(position).getAntrian_id());
+        } else if (antrianIDLength == 2) {
+            viewHolder.textViewIdAntrian.setText("QUE0" + antrianModelList.get(position).getAntrian_id());
+        } else if (antrianIDLength >= 3) {
+            viewHolder.textViewIdAntrian.setText("QUE" + antrianModelList.get(position).getAntrian_id());
+        }
+        switch (antrianModelList.get(position).getStatus_antrian()) {
+            case 0:
+                viewHolder.linearCenter.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
+                break;
+            case 1:
+                viewHolder.linearCenter.setBackgroundColor(context.getResources().getColor(R.color.orange));
+                break;
+            case 2:
+                viewHolder.linearCenter.setBackgroundColor(context.getResources().getColor(R.color.green_lumut));
+                break;
+        }
+        viewHolder.textViewAntrianDetail.setText(antrianModelList.get(position).getPasien_name() + "\n" + antrianModelList.get(position).getPoliklinik_name() + " - " + antrianModelList.get(position).getDokter_name());
     }
 
     @Override
@@ -52,10 +69,12 @@ public class RecyclerPasienQueueAdapter extends RecyclerView.Adapter<RecyclerPas
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.text_list_antrian)
-        TextView textListAntrian;
-        @BindView(R.id.card_item_antrian)
-        CardView cardItemAntrian;
+        @BindView(R.id.text_view_id_antrian)
+        TextView textViewIdAntrian;
+        @BindView(R.id.text_view_antrian_detail)
+        TextView textViewAntrianDetail;
+        @BindView(R.id.linear_center)
+        LinearLayout linearCenter;
 
         ViewHolder(View view) {
             super(view);

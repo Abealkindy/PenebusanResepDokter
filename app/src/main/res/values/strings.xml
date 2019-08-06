@@ -100,4 +100,9 @@
     <string name="uang_kembalian_hint">Uang Kembalian</string>
     <string name="detail_struk_list_title">Detail Struk List</string>
     <string name="keluhan_hint">Keluhan</string>
+    <string name="lihat_detail_text">Lihat Detail</string>
+    <string name="list_text">List</string>
+    <string name="bayar_text">Bayar</string>
+    <string name="poli_text">Poli</string>
+    <string name="antrian_text">Antrian</string>
 </resources>

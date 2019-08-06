@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +17,11 @@ import com.rosinante.penebusanresepdokter.R;
 import com.rosinante.penebusanresepdokter.activities.farmasipages.FarmasiAddDetailActivity;
 import com.rosinante.penebusanresepdokter.models.ResepModel;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,31 +39,46 @@ public class RecyclerResepFarmasiAdapter extends RecyclerView.Adapter<RecyclerRe
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_item_resep, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item_for_resep_dokter, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int postion) {
-        viewHolder.textListResep.setText("ID Resep : " + resepDataList.get(postion).getResep_id() + "\n");
-        viewHolder.textListResep.append("Tanggal Resep : " + resepDataList.get(postion).getResep_date() + "\n");
-        viewHolder.textListResep.append("Isi Resep : " + resepDataList.get(postion).getResep_text() + "\n");
+        viewHolder.textViewPasienNameResep.setText(resepDataList.get(postion).getPasien_name());
         if (resepDataList.get(postion).getResep_status() == 0) {
-            viewHolder.textListResep.append("Status Resep : Belum Diproses");
-            viewHolder.cardItemResep.setOnClickListener(v -> {
+            viewHolder.relativeListBottomResep.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
+            viewHolder.cardItemListWithText.setOnClickListener(v -> {
                 Intent intent = new Intent(context.getApplicationContext(), FarmasiAddDetailActivity.class);
                 intent.putExtra("resepID", resepDataList.get(postion).getResep_id());
                 context.startActivity(intent);
             });
         } else if (resepDataList.get(postion).getResep_status() == 1) {
-            viewHolder.textListResep.append("Status Resep : Sudah Diproses");
-            viewHolder.cardItemResep.setOnClickListener(v -> {
-                Toast.makeText(context, "Resep sudah diproses!", Toast.LENGTH_SHORT).show();
-            });
+            viewHolder.relativeListBottomResep.setBackgroundColor(context.getResources().getColor(R.color.orange));
+            viewHolder.cardItemListWithText.setOnClickListener(v -> Toast.makeText(context, "Resep sudah diproses!", Toast.LENGTH_SHORT).show());
+        } else if (resepDataList.get(postion).getResep_status() == 2) {
+            viewHolder.relativeListBottomResep.setBackgroundColor(context.getResources().getColor(R.color.green_lumut));
         }
+        if (String.valueOf(resepDataList.get(postion).getResep_id()).length() == 1) {
+            viewHolder.textViewResepDetail.setText("RX00" + resepDataList.get(postion).getResep_id() + " - " + setDateFormat(resepDataList.get(postion).getResep_date()));
+        } else if (String.valueOf(resepDataList.get(postion).getResep_id()).length() == 2) {
+            viewHolder.textViewResepDetail.setText("RX0" + resepDataList.get(postion).getResep_id() + " - " + setDateFormat(resepDataList.get(postion).getResep_date()));
+        } else if (String.valueOf(resepDataList.get(postion).getResep_id()).length() >= 3) {
+            viewHolder.textViewResepDetail.setText("RX" + resepDataList.get(postion).getResep_id() + " - " + setDateFormat(resepDataList.get(postion).getResep_date()));
+        }
+    }
 
-
+    private String setDateFormat(String dateFormat) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy MM dd", Locale.getDefault());
+        Date date = null;
+        try {
+            date = simpleDateFormat.parse(dateFormat);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        simpleDateFormat.applyPattern("dd/MM/yyyy");
+        return simpleDateFormat.format(date);
     }
 
     @Override
@@ -67,10 +87,15 @@ public class RecyclerResepFarmasiAdapter extends RecyclerView.Adapter<RecyclerRe
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.text_list_resep)
-        TextView textListResep;
-        @BindView(R.id.card_item_resep)
-        CardView cardItemResep;
+
+        @BindView(R.id.text_view_pasien_name_resep)
+        TextView textViewPasienNameResep;
+        @BindView(R.id.text_view_resep_detail)
+        TextView textViewResepDetail;
+        @BindView(R.id.relative_list_bottom_resep)
+        RelativeLayout relativeListBottomResep;
+        @BindView(R.id.card_item_list_with_text)
+        CardView cardItemListWithText;
 
         ViewHolder(View view) {
             super(view);

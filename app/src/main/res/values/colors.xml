@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#34C2E9</color>
-    <color name="colorPrimaryOpacity">#fe10b6e4</color>
-    <color name="colorPrimaryDark">#30b7dc</color>
+    <color name="colorPrimaryOpacity">#FE10B6E4</color>
+    <color name="colorPrimaryDark">#30B7DC</color>
     <color name="colorAccent">#34C2E9</color>
     <color name="green_lumut">#00B490</color>
-    <color name="green_lumut_darker">#00a483</color>
+    <color name="green_lumut_darker">#00A483</color>
     <color name="green_grass">#00AE74</color>
-    <color name="green_grass_darker">#00a36c</color>
+    <color name="green_grass_darker">#00A36C</color>
+    <color name="money_color_1">#85BB65</color>
+    <color name="money_color_2">#00CFB0</color>
     <color name="orange">#FFA73A</color>
-    <color name="orange_darker">#e69531</color>
+    <color name="orange_darker">#E69531</color>
+    <color name="lavender_color">#FF21EC</color>
     <color name="black_with_opacity">#a0000000</color>
     <array name="array_dot_activ">
         <item>@android:color/white</item>

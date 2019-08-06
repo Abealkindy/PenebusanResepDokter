@@ -117,7 +117,6 @@ public class AdminEditDokterProfileActivity extends AppCompatActivity {
         editTextUsername.setText(username);
         editTextPassword.setText(userPassword);
         editTextNamaLengkap.setText(dokterName);
-        textSpinnerPoliklinik.setText(namePoliklinik);
         getPoliklinikData();
 
     }
@@ -140,7 +139,10 @@ public class AdminEditDokterProfileActivity extends AppCompatActivity {
 
                     @Override
                     public void onNothingSelected(AdapterView<?> parent) {
-                        textSpinnerPoliklinik.setText("");
+                        spinnerPoliklinik.setVisibility(View.GONE);
+                        textSpinnerPoliklinik.setVisibility(View.VISIBLE);
+                        poliklinikIdDokter = response.body().getHasil().get(0).getPoliklinik_id();
+                        textSpinnerPoliklinik.setText(String.valueOf(response.body().getHasil().get(0).getPoliklinik_name()));
                     }
                 });
             }

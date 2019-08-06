@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/jarak10dp"
+    android:padding="@dimen/size10dp"
     tools:context=".activities.adminpages.pembayaran.AdminPembayaranListActivity">
 
     <android.support.v7.widget.RecyclerView

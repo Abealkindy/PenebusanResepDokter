@@ -13,11 +13,13 @@
         android:id="@+id/img1"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/secondchoiceicon" />
+        android:src="@drawable/secondchoiceicon"
+        tools:ignore="ContentDescription" />
 
     <ImageView
-        android:layout_width="@dimen/jarak150dp"
-        android:layout_height="@dimen/jarak150dp"
-        android:src="@drawable/icon" />
+        android:layout_width="@dimen/size150dp"
+        android:layout_height="@dimen/size150dp"
+        android:src="@drawable/iconnewest"
+        tools:ignore="ContentDescription" />
 
 </LinearLayout>

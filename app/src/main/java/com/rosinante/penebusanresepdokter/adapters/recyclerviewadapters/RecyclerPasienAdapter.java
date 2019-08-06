@@ -4,11 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.rosinante.penebusanresepdokter.R;
@@ -42,21 +43,28 @@ public class RecyclerPasienAdapter extends RecyclerView.Adapter<RecyclerPasienAd
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_item_pasien, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item_for_list_pasien, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int postion) {
-        viewHolder.textListAntrian.setText("Nama Pasien : " + pasienDataList.get(postion).getPasien_name() + "\n");
-        viewHolder.textListAntrian.append("Gender Pasien : " + pasienDataList.get(postion).getPasien_gender() + "\n");
+        viewHolder.textViewPasienName.setText(pasienDataList.get(postion).getPasien_name());
         if (pasienDataList.get(postion).getPasien_age() == null) {
-            viewHolder.textListAntrian.append("Umur Pasien : " + "");
+            viewHolder.textViewPasienDetail.setText(pasienDataList.get(postion).getPasien_gender() + " - " + "Umur belum diinput");
         } else {
-            viewHolder.textListAntrian.append("Umur Pasien : " + getAge(pasienDataList.get(postion).getPasien_age()));
+            viewHolder.textViewPasienDetail.setText(pasienDataList.get(postion).getPasien_gender() + " - " + getAge(pasienDataList.get(postion).getPasien_age()));
         }
-        viewHolder.cardItemDokter.setOnClickListener(v -> {
+        if (pasienDataList.get(postion).getPasien_gender().equals("Pria")) {
+            viewHolder.imageListPasien.setImageDrawable(context.getResources().getDrawable(R.drawable.malepatient));
+            viewHolder.relativeListBottom.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
+        } else {
+            viewHolder.imageListPasien.setImageDrawable(context.getResources().getDrawable(R.drawable.femalepatient));
+            viewHolder.relativeListBottom.setBackgroundColor(context.getResources().getColor(R.color.lavender_color));
+        }
+
+        viewHolder.relativeListBottom.setOnClickListener(v -> {
             Intent intent = new Intent(context.getApplicationContext(), AdminEditPasienProfileActivity.class);
             intent.putExtra("pasien_id", pasienDataList.get(postion).getId_user());
             intent.putExtra("username", pasienDataList.get(postion).getUsername());
@@ -90,10 +98,10 @@ public class RecyclerPasienAdapter extends RecyclerView.Adapter<RecyclerPasienAd
         int month = dob.get(Calendar.MONTH);
         int day = dob.get(Calendar.DAY_OF_MONTH);
 
-        LocalDate birthDate = new LocalDate(year, month, day);
+        LocalDate birthDate = new LocalDate(year, month + 1, day);
         LocalDate nowDate = LocalDate.now();
         Period period = new Period(birthDate, nowDate, PeriodType.yearMonthDay());
-        return String.valueOf(period.getYears() + " Tahun " + period.getMonths() + " Bulan " + period.getDays() + " Hari");
+        return period.getYears() + " Tahun " + period.getMonths() + " Bulan " + period.getDays() + " Hari";
     }
 
     @Override
@@ -102,10 +110,15 @@ public class RecyclerPasienAdapter extends RecyclerView.Adapter<RecyclerPasienAd
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.text_list_pasien)
-        TextView textListAntrian;
-        @BindView(R.id.card_item_pasien)
-        CardView cardItemDokter;
+
+        @BindView(R.id.image_list_pasien)
+        ImageView imageListPasien;
+        @BindView(R.id.text_view_pasien_name)
+        TextView textViewPasienName;
+        @BindView(R.id.text_view_pasien_detail)
+        TextView textViewPasienDetail;
+        @BindView(R.id.relative_list_bottom)
+        RelativeLayout relativeListBottom;
 
         ViewHolder(View view) {
             super(view);

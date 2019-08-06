@@ -9,8 +9,8 @@
         android:id="@+id/recycler_poliklinik_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/jarak10dp"
-        tools:listitem="@layout/list_item_poliklinik" />
+        android:paddingTop="@dimen/size10dp"
+        tools:listitem="@layout/list_item_for_poliklinik" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_add_poliklinik"

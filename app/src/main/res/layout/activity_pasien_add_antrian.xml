@@ -11,14 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_margin="@dimen/jarak20dp">
+        android:layout_margin="@dimen/size20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="@dimen/jarak20dp">
+            android:padding="@dimen/size20dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 android:gravity="center"
                 android:text="@string/daftar_antrian_text"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="@dimen/jarak_40sp" />
+                android:textSize="@dimen/size40sp" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -37,8 +37,8 @@
                 <EditText
                     android:id="@+id/edit_text_tanggal_pendaftaran_pasien"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/jarak50dp"
-                    android:layout_marginBottom="@dimen/jarak10dp"
+                    android:layout_height="@dimen/size50dp"
+                    android:layout_marginBottom="@dimen/size10dp"
                     android:focusable="false"
                     android:hint="@string/tanggal_pendaftaran_hint" />
 
@@ -51,8 +51,8 @@
                 <EditText
                     android:id="@+id/edit_text_keterangan_pasien"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/jarak100dp"
-                    android:layout_marginBottom="@dimen/jarak10dp"
+                    android:layout_height="@dimen/size100dp"
+                    android:layout_marginBottom="@dimen/size10dp"
                     android:gravity="top|start"
                     android:hint="@string/keluhan_hint"
                     android:importantForAutofill="no"
@@ -66,7 +66,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/jarak1dp"
+                android:layout_marginStart="@dimen/size1dp"
                 android:layout_marginBottom="@dimen/dots_margin_bottom"
                 android:background="@drawable/background_edit_text">
 
@@ -75,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/poliklinik_menu_text"
-                    android:textSize="@dimen/size_17sp"
+                    android:textSize="@dimen/size17sp"
                     tools:visibility="visible" />
 
                 <Spinner
@@ -89,7 +89,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/jarak1dp"
+                android:layout_marginStart="@dimen/size1dp"
                 android:layout_marginBottom="@dimen/dots_margin_bottom"
                 android:background="@drawable/background_edit_text">
 
@@ -98,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/dokter_menu_text"
-                    android:textSize="@dimen/size_17sp"
+                    android:textSize="@dimen/size17sp"
                     tools:visibility="visible" />
 
                 <Spinner
@@ -114,7 +114,7 @@
                 android:id="@+id/button_daftar_antrian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/jarak10dp"
+                android:layout_marginTop="@dimen/size10dp"
                 android:background="@drawable/ground_button_place"
                 android:text="@string/daftar_button_text"
                 android:textColor="@android:color/white"

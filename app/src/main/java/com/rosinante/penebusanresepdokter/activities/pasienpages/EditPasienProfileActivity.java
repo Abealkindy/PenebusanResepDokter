@@ -138,7 +138,7 @@ public class EditPasienProfileActivity extends AppCompatActivity {
         int month = dob.get(Calendar.MONTH);
         int day = dob.get(Calendar.DAY_OF_MONTH);
 
-        LocalDate birthDate = new LocalDate(year, month, day);
+        LocalDate birthDate = new LocalDate(year, month + 1, day);
         LocalDate nowDate = LocalDate.now();
         Period period = new Period(birthDate, nowDate, PeriodType.yearMonthDay());
         editTextUmurPasien.setText(period.getYears() + " Tahun " + period.getMonths() + " Bulan " + period.getDays() + " Hari");
@@ -215,7 +215,7 @@ public class EditPasienProfileActivity extends AppCompatActivity {
                 pasienGender = "Pria";
                 break;
             case R.id.radio_button_wanita:
-                pasienGender = "Pria";
+                pasienGender = "Wanita";
                 break;
             case R.id.button_update_pasien:
                 int IDPasien = getIntent().getIntExtra("pasien_id_pasien", 0);

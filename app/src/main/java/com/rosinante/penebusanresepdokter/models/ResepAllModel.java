@@ -20,5 +20,6 @@ public class ResepAllModel {
         private double harga_obat;
         private String dosis_obat;
         private double total_harga;
+        private int resep_status;
     }
 }

@@ -28,7 +28,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/jarak_18dp">
+                    android:layout_marginEnd="@dimen/size18dp">
 
                     <TextView
                         android:id="@+id/toolbar_text"
