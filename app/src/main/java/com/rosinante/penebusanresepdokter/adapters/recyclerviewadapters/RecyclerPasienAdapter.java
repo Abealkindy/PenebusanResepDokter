@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.rosinante.penebusanresepdokter.R;
-import com.rosinante.penebusanresepdokter.activities.adminpages.pasien.AdminEditPasienProfileActivity;
+import com.rosinante.penebusanresepdokter.activities.adminpages.pasien.admineditpasienprofile.AdminEditPasienProfileActivity;
 import com.rosinante.penebusanresepdokter.models.PasienModel;
 
 import org.joda.time.LocalDate;

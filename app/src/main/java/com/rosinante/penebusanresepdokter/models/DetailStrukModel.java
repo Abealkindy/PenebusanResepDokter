@@ -11,6 +11,7 @@ public class DetailStrukModel {
     @Data
     public class DetailStrukModelData {
         private int detail_obat_id;
+        private int resep_id;
         private String pembayaran_date;
         private String pasien_name;
         private String dokter_name;

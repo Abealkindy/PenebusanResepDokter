@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.rosinante.penebusanresepdokter.R;
 import com.rosinante.penebusanresepdokter.models.DetailModel;
-import com.rosinante.penebusanresepdokter.models.ResepModel;
 
 import java.util.List;
 
@@ -32,15 +31,27 @@ public class RecyclerDetailAdapter extends RecyclerView.Adapter<RecyclerDetailAd
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_item_detail, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item_for_detail, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int postion) {
-        viewHolder.textListDetail.setText("ID Detail : " + detailModelData.get(postion).getDetail_id() + "\n");
-        viewHolder.textListDetail.append("ID Resep : " + detailModelData.get(postion).getResep_id());
+        if (String.valueOf(detailModelData.get(postion).getDetail_id()).length() == 1) {
+            viewHolder.textViewDetailId.setText("DTL00" + detailModelData.get(postion).getDetail_id());
+        } else if (String.valueOf(detailModelData.get(postion).getResep_id()).length() == 2) {
+            viewHolder.textViewDetailId.setText("DTL0" + detailModelData.get(postion).getDetail_id());
+        } else if (String.valueOf(detailModelData.get(postion).getResep_id()).length() >= 3) {
+            viewHolder.textViewDetailId.setText("DTL" + detailModelData.get(postion).getDetail_id());
+        }
+        if (String.valueOf(detailModelData.get(postion).getResep_id()).length() == 1) {
+            viewHolder.textViewResepId.setText("RX00" + detailModelData.get(postion).getResep_id());
+        } else if (String.valueOf(detailModelData.get(postion).getResep_id()).length() == 2) {
+            viewHolder.textViewResepId.setText("RX0" + detailModelData.get(postion).getResep_id());
+        } else if (String.valueOf(detailModelData.get(postion).getResep_id()).length() >= 3) {
+            viewHolder.textViewResepId.setText("RX" + detailModelData.get(postion).getResep_id());
+        }
     }
 
     @Override
@@ -49,10 +60,13 @@ public class RecyclerDetailAdapter extends RecyclerView.Adapter<RecyclerDetailAd
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.text_list_detail)
-        TextView textListDetail;
-        @BindView(R.id.card_item_detail)
-        CardView cardItemDetail;
+
+        @BindView(R.id.text_view_detail_id)
+        TextView textViewDetailId;
+        @BindView(R.id.text_view_resep_id)
+        TextView textViewResepId;
+        @BindView(R.id.card_item_list_with_text)
+        CardView cardItemListWithText;
 
         ViewHolder(View view) {
             super(view);

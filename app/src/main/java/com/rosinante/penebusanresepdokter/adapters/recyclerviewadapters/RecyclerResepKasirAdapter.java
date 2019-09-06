@@ -11,13 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.rosinante.penebusanresepdokter.R;
-import com.rosinante.penebusanresepdokter.activities.farmasipages.FarmasiAddDetailActivity;
-import com.rosinante.penebusanresepdokter.activities.kasirpages.KasirAddPembayaranActivity;
+import com.rosinante.penebusanresepdokter.activities.kasirpages.kasiraddpembayaranpage.KasirAddPembayaranActivity;
 import com.rosinante.penebusanresepdokter.models.ResepAllModel;
-import com.rosinante.penebusanresepdokter.models.ResepModel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

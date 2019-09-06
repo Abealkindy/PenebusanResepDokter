@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rosinante.penebusanresepdokter.R;
-import com.rosinante.penebusanresepdokter.activities.farmasipages.FarmasiAddDetailActivity;
+import com.rosinante.penebusanresepdokter.activities.farmasipages.adddetailfarmasipage.FarmasiAddDetailActivity;
 import com.rosinante.penebusanresepdokter.models.ResepModel;
 
 import java.text.ParseException;

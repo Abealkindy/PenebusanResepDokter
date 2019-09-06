@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.rosinante.penebusanresepdokter.R;
-import com.rosinante.penebusanresepdokter.activities.dokterpages.DokterAddResepActivity;
+import com.rosinante.penebusanresepdokter.activities.dokterpages.dokteraddreseppage.DokterAddResepActivity;
 import com.rosinante.penebusanresepdokter.models.AntrianDokterModel;
 
 import java.util.List;

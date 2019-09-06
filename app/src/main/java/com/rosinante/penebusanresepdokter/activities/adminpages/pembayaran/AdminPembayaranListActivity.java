@@ -23,10 +23,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AdminPembayaranListActivity extends AppCompatActivity {
+public class AdminPembayaranListActivity extends AppCompatActivity implements AdminPembayaranListInterface {
 
     @BindView(R.id.recycler_pembayaran)
     RecyclerView recyclerPembayaran;
+    private AdminPembayaranListPresenter adminPembayaranListPresenter = new AdminPembayaranListPresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,9 @@ public class AdminPembayaranListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_pembayaran_list);
         ButterKnife.bind(this);
         setTitle("Pembayaran List");
-        getPembayaranData();
+        adminPembayaranListPresenter.getPembayaranData();
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -43,20 +45,15 @@ public class AdminPembayaranListActivity extends AppCompatActivity {
         finish();
     }
 
-    private void getPembayaranData() {
-        ApiService apiService = RetrofitConfig.getInitRetrofit();
-        Call<PembayaranModel> pembayaranModelCall = apiService.getPembayaran();
-        pembayaranModelCall.enqueue(new Callback<PembayaranModel>() {
-            @Override
-            public void onResponse(@NonNull Call<PembayaranModel> call, @NonNull Response<PembayaranModel> response) {
-                recyclerPembayaran.setLayoutManager(new LinearLayoutManager(AdminPembayaranListActivity.this));
-                recyclerPembayaran.setAdapter(new RecyclerPembayaranAdapter(AdminPembayaranListActivity.this, Objects.requireNonNull(response.body()).getHasil()));
-            }
 
-            @Override
-            public void onFailure(@NonNull Call<PembayaranModel> call, @NonNull Throwable t) {
-                Toast.makeText(AdminPembayaranListActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+    @Override
+    public void onGetAllPembayaranDataSuccess(PembayaranModel pembayaranModel) {
+        recyclerPembayaran.setLayoutManager(new LinearLayoutManager(AdminPembayaranListActivity.this));
+        recyclerPembayaran.setAdapter(new RecyclerPembayaranAdapter(AdminPembayaranListActivity.this, Objects.requireNonNull(pembayaranModel).getHasil()));
+    }
+
+    @Override
+    public void onGetAllPembayaranDataFailed(String errorMessage) {
+        Toast.makeText(AdminPembayaranListActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
     }
 }

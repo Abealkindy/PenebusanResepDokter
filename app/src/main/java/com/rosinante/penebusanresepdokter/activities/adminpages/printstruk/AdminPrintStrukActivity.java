@@ -25,6 +25,7 @@ import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.rosinante.penebusanresepdokter.R;
+import com.rosinante.penebusanresepdokter.activities.adminpages.printstruk.admindetailstruklistpage.AdminDetailStrukListActivity;
 import com.rosinante.penebusanresepdokter.utils.FileUtils;
 
 import java.io.File;
@@ -163,7 +164,7 @@ public class AdminPrintStrukActivity extends AppCompatActivity {
             Toast.makeText(this, "Data Kosong!", Toast.LENGTH_SHORT).show();
         } else {
             Document document = new Document();
-            String fileName = "#Resep0" + IDStruk + new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis());
+            String fileName = "#DRX0" + IDStruk + new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis());
             String filePath = Environment.getExternalStorageDirectory() + "/" + fileName + ".pdf";
             try {
                 PdfWriter.getInstance(document, new FileOutputStream(filePath));

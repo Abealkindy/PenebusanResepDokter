@@ -44,4 +44,7 @@
     <dimen name="size70dp">70dp</dimen>
     <dimen name="size30dp">30dp</dimen>
     <dimen name="size40dp">40dp</dimen>
+    <dimen name="size25sp">25sp</dimen>
+    <dimen name="size26sp">26sp</dimen>
+    <dimen name="size28sp">28sp</dimen>
 </resources>

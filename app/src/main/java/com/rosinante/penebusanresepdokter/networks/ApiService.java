@@ -25,12 +25,12 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-
+import io.reactivex.Observable;
 
 public interface ApiService {
     @FormUrlEncoded
     @POST("registerUser")
-    Call<RegisterResponse> request_register(
+    Observable<RegisterResponse> request_register(
             @Field("username") String username,
             @Field("user_password") String user_password,
             @Field("user_role") String user_role
@@ -38,7 +38,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("addAntrian")
-    Call<RegisterResponse> add_antrian(
+    Observable<RegisterResponse> add_antrian(
             @Field("tanggal_antrian") String tanggal_antrian,
             @Field("keterangan") String keterangan,
             @Field("dokter_id") int dokter_id,
@@ -48,20 +48,20 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("addObat")
-    Call<RegisterResponse> add_obat(
+    Observable<RegisterResponse> add_obat(
             @Field("nama_obat") String nama_obat,
             @Field("harga_obat") double harga_obat
     );
 
     @FormUrlEncoded
     @POST("addPoliklinik")
-    Call<RegisterResponse> add_poliklinik(
+    Observable<RegisterResponse> add_poliklinik(
             @Field("poliklinik_name") String poliklinik_name
     );
 
     @FormUrlEncoded
     @POST("addResep")
-    Call<RegisterResponse> addResep(
+    Observable<RegisterResponse> addResep(
             @Field("antrian_id") int antian_id,
             @Field("dokter_id") int dokter_id,
             @Field("pasien_id") int pasien_id,
@@ -71,7 +71,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("addDetail")
-    Call<RegisterResponse> addDetail(
+    Observable<RegisterResponse> addDetail(
             @Field("id_obat") int id_obat,
             @Field("resep_id") int resep_id,
             @Field("harga_obat") double harga_obat,
@@ -81,7 +81,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("addPembayaran")
-    Call<RegisterResponse> addPembayaran(
+    Observable<RegisterResponse> addPembayaran(
             @Field("pasien_id") int pasien_id,
             @Field("antrian_id") int antrian_id,
             @Field("resep_id") int resep_id,
@@ -92,7 +92,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("loginUser")
-    Call<LoginModel> request_login(
+    Observable<LoginModel> request_login(
             @Field("username") String username,
             @Field("user_password") String user_password
     );
@@ -100,19 +100,19 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("deleteDokter")
-    Call<RegisterResponse> delete_dokter(
+    Observable<RegisterResponse> delete_dokter(
             @Field("id_user") int id_user
     );
 
     @FormUrlEncoded
     @POST("deletePasien")
-    Call<RegisterResponse> delete_pasien(
+    Observable<RegisterResponse> delete_pasien(
             @Field("id_user") int id_user
     );
 
     @FormUrlEncoded
     @POST("updateDokter")
-    Call<RegisterResponse> request_update_dokter(
+    Observable<RegisterResponse> request_update_dokter(
             @Field("id_user") int id_user,
             @Field("dokter_id") int dokter_id,
             @Field("username") String username,
@@ -129,7 +129,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("updatePasien")
-    Call<RegisterResponse> request_update_pasien(
+    Observable<RegisterResponse> request_update_pasien(
             @Field("id_user") int id_user,
             @Field("pasien_id") int pasien_id,
             @Field("username") String username,
@@ -144,76 +144,76 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("getDokterByPoliklinikId")
-    Call<DokterDetailModel> getDokterByPoliklinikID(
+    Observable<DokterDetailModel> getDokterByPoliklinikID(
             @Field("poliklinik_id") int poliklinik_id
     );
 
     @FormUrlEncoded
     @POST("getPasienById")
-    Call<PasienDetailModel> getPasienByID(
+    Observable<PasienDetailModel> getPasienByID(
             @Field("id_user") int id_user
     );
 
     @FormUrlEncoded
     @POST("getAntrianByPasienID")
-    Call<AntrianPasienModel> getAntrianByPasienID(
+    Observable<AntrianPasienModel> getAntrianByPasienID(
             @Field("pasien_id") int pasien_id
     );
 
     @FormUrlEncoded
     @POST("getDokterById")
-    Call<DokterByIDModel> getDokterById(
+    Observable<DokterByIDModel> getDokterById(
             @Field("id_user") int id_user
     );
 
     @FormUrlEncoded
     @POST("getAntrianByDokterID")
-    Call<AntrianDokterModel> getAntrianByDokterID(
+    Observable<AntrianDokterModel> getAntrianByDokterID(
             @Field("dokter_id") int dokter_id
     );
 
     @FormUrlEncoded
     @POST("getResepByDokterID")
-    Call<ResepDokterModel> getResepByDokterID(
+    Observable<ResepDokterModel> getResepByDokterID(
             @Field("dokter_id") int dokter_id
     );
 
     @GET("getPasienData")
-    Call<PasienModel> getPasien();
+    Observable<PasienModel> getPasien();
 
     @GET("getPoliklinikData")
-    Call<PoliklinikModel> getPoliklinik();
+    Observable<PoliklinikModel> getPoliklinik();
 
     @GET("getDokterData")
-    Call<DokterModel> getDokter();
+    Observable<DokterModel> getDokter();
 
     @GET("getUserData")
-    Call<LoginModel> getUser();
+    Observable<LoginModel> getUser();
 
     @GET("getAntrian")
-    Call<AntrianModel> getAntrian();
+    Observable<AntrianModel> getAntrian();
 
     @GET("getObatData")
-    Call<ObatModel> getObat();
+    Observable<ObatModel> getObat();
 
     @GET("getActiveResep")
-    Call<ResepModel> getActiveResep();
+    Observable<ResepModel> getActiveResep();
 
     @GET("getResep")
-    Call<ResepModel> getResep();
+    Observable<ResepModel> getResep();
 
     @GET("getResepAll")
-    Call<ResepAllModel> getResepAll();
+    Observable<ResepAllModel> getResepAll();
 
     @GET("getDetail")
-    Call<DetailModel> getDetail();
+    Observable<DetailModel> getDetail();
 
     @GET("getDetailForPharmacy")
-    Call<DetailFarmasiModel> getDetailForPharmacy();
+    Observable<DetailFarmasiModel> getDetailForPharmacy();
 
     @GET("getStruk")
-    Call<DetailStrukModel> getDataStruk();
+    Observable<DetailStrukModel> getDataStruk();
 
     @GET("getPembayaran")
-    Call<PembayaranModel> getPembayaran();
+    Observable<PembayaranModel> getPembayaran();
 }

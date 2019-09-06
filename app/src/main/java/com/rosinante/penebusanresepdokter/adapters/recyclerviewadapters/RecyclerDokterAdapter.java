@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.rosinante.penebusanresepdokter.R;
-import com.rosinante.penebusanresepdokter.activities.adminpages.dokter.AdminEditDokterProfileActivity;
+import com.rosinante.penebusanresepdokter.activities.adminpages.dokter.admineditprofiledokterpage.AdminEditDokterProfileActivity;
 import com.rosinante.penebusanresepdokter.models.DokterModel;
 
 import java.util.List;

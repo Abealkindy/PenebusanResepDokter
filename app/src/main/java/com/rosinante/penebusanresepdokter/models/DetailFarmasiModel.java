@@ -11,7 +11,10 @@ public class DetailFarmasiModel {
     @Data
     public class DetailFarmasiData {
         private int detail_obat_id;
+        private int resep_id;
+        private String resep_date;
         private String resep_text;
+        private String pasien_name;
         private String nama_obat;
         private String dosis_obat;
         private double harga_obat;
